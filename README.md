@@ -6,7 +6,7 @@ This is a simple python program to convert currencies using the online API calle
 
 ---
 
-### Requirements : 
+### <u>Requirements</u> :
 <p>
    <img src="https://img.shields.io/badge/python-v3.6.0-brown ">
     <img src="https://img.shields.io/badge/pip-v22.0.4-blueviolet ">
@@ -21,4 +21,18 @@ This is a simple python program to convert currencies using the online API calle
 
 ---
 
+### <u>Overview of the Code</u> :
+**The code includes 4 functions which are stated below:**
+```python
+def get_currencies()  
+def print_currencies(currencies)
+def exchange_rate(currency1, currency2)
+def convert(currency1, currency2, amount)
+```
 
+---
+
+#### <u>Lists of Commands</u> : 
+- LIST ~ shows all the currencies
+- CONVERT ~ it does the conversion of the entered currencies
+- RATE ~ shows the exchange rate of the currencies entered

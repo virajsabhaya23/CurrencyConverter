@@ -34,10 +34,53 @@ def exchange_rate(currency1, currency2):
         print("invalid currencies.")
         return
 
-    return list(data.values())[0]
+    rate = list(data.values())[0]
+    print(f"{currency1} -> {currency2} = {rate}")
+
+    return rate
+
+def convert(currency1, currency2, amount):
+    rate = exchange_rate(currency1, currency2)
+    if rate is None:
+        return
+
+    try:
+        amount = float(amount)
+    except:
+        print("Invalid amount...")
+        return
+
+    converted_amount = rate * amount
+    print(f"{amount} {currency1} is equal to {converted_amount} {currency2}")
+    return converted_amount
 
 
-# data = get_currencies()
-# print_currencies(data)
-rate = exchange_rate("USD","CAD")
-print(rate)
+def main():
+    currencies = get_currencies()
+
+    print("WELCOME! this is Currency Converter")
+    print("LIST ~ shows all the currencies")
+    print("CONVERT ~ it does the conversion of the entered currencies")
+    print("RATE ~ shows the exchange rate of the currencies entered")
+    print()
+
+    while True:
+        command = input("Enter a command (q to quit): ").lower()
+
+        if command == "q":
+            break
+        elif command == "list":
+            print_currencies(currencies)
+        elif command == "convert":
+            currency1 = input("Enter currency id you want to convert from: ").upper()
+            amount = input("Enter an amount in {currency1}: ")
+            currency2 = input("Enter currency id to convert into: ").upper()
+            convert(currency1, currency2, amount)
+        elif command == "rate":
+            currency1 = input("Enter currency id you want to convert from: ").upper()
+            currency2 = input("Enter currency id to convert into: ").upper()
+            exchange_rate(currency1, currency2)
+        else:
+            print("Unknown command")
+
+main()
